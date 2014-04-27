@@ -29,4 +29,17 @@ feature 'Homepage' do
     expect(page).to have_content('yellow')
     expect(page).to_not have_content('red')
   end
+
+  scenario 'Can delete a color' do
+    visit '/colors/new'
+    fill_in 'name', with: 'red'
+    fill_in 'characteristic', with: 'vibrant'
+    fill_in 'rating_1_to_5', with: 5
+    click_on 'Create Color'
+
+    click_on 'red'
+    click_on 'Delete Color'
+
+    expect(page).to_not have_content('red')
+  end
 end

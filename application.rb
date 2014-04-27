@@ -43,5 +43,10 @@ class Application < Sinatra::Application
     erb :index, locals: {list_of_colors: DB[:colors].to_a}
   end
 
+  delete '/colors/:id' do
+    #colors_id = params[:id] # or... delete this line and...
+    DB[:colors].where(id: params[:id]).delete # or... DB[:colors].where(id: cat_id).delete
+    redirect '/'
+  end
 end
 
