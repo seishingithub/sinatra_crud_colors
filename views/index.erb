@@ -1,3 +1,7 @@
-<p>
-  Welcome!
-</p>
+<a href="/colors/new"><b>Add a color</b></a>
+
+<ul>
+  <% list_of_colors.each do |color| %>
+    <li><a href="/colors/<%= color[:id] %>"><%= color[:name] %></li>
+  <% end %>
+</ul>
