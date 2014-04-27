@@ -1,0 +1,9 @@
+<h1>Editing <%= single_color[:name] %></h1>
+
+<form action="/colors/<%= single_color[:id] %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="name" value="<%= single_color[:name] %>">
+  <input type="text" name="characteristic" value="<%= single_color[:characteristic] %>">
+  <input type="text" name="rating_1_to_5" value="<%= single_color[:rating_1_to_5] %>">
+  <input type="submit" value="Update Color">
+</form>
